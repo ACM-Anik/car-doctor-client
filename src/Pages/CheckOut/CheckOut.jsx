@@ -27,7 +27,7 @@ const CheckOut = () => {
 
         console.log(booking);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-doctor-server-two-lake.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -75,7 +75,7 @@ const CheckOut = () => {
                     </div>
                 </div>
                 <div className="form-control mt-6">
-                    <input className="btn btn-primary btn-block" type="submit" value="Order Confirm" />
+                    <input className="btn border-0 bg-[#FF3811] hover:bg-[#d12907] btn-block" type="submit" value="Order Confirm" />
                 </div>
             </form>
             <div className="card-body">

@@ -8,36 +8,38 @@ import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
 
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      children: [
-        {
-            path:'/',
-            element: <Home></Home>
-        },
-        {
-            path: '/login',
-            element: <Login></Login>
-        },
-        {
-            path: '/signUp',
-            element: <SignUp></SignUp>
-        },
-        {
-            path: 'checkout/:id',
-            element: <CheckOut></CheckOut>,
-            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
-        },
-        {
-            path: '/bookings',
-            element: <PrivateRoute>
-                <Bookings></Bookings>
-            </PrivateRoute>
-        }
-      ]
-    },
-  ]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/signUp',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: 'checkout/:id',
+        element: <PrivateRoute>
+          <CheckOut></CheckOut>
+        </PrivateRoute>,
+        loader: ({ params }) => fetch(`https://car-doctor-server-two-lake.vercel.app/services/${params.id}`)
+      },
+      {
+        path: '/bookings',
+        element: <PrivateRoute>
+          <Bookings></Bookings>
+        </PrivateRoute>
+      }
+    ]
+  },
+]);
 
 export default router;

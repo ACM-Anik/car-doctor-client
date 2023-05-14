@@ -6,10 +6,10 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://car-doctor-server-two-lake.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data));
-    }, [])
+    }, [services])
 
     return (
         <div className="my-6">

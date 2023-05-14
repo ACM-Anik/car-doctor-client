@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import img from '../../assets/images/login/login.svg';
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -17,12 +18,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password)
+
         signIn(email, password)
             .then(result => {
-                const user = result.user;
+                const user = result.user;  
                 console.log(user);
                 navigate(from, {replace: true});
+
+                
             })
             .catch(error => console.log(error));
     }
@@ -52,10 +55,11 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn border-0 bg-[#FF3811] hover:bg-[#d12907]" type="submit" value="Login" />
                             </div>
                         </form>
                         <p className='my-4 text-center'>New to Car Doctors <Link className='text-orange-600 font-bold' to="/signUp">Sign Up</Link> </p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>

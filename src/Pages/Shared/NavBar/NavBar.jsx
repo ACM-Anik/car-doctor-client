@@ -8,7 +8,11 @@ const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
-        logOut();
+        logOut()
+        .then(() =>{
+
+        })
+        .catch(error => console.log(error))
     }
 
 
@@ -67,7 +71,7 @@ const NavBar = () => {
                                     {
                                         // user?.photoURL ?
                                         <div className="w-10 border border-[#FF3811] rounded-full">
-                                            <img src="" alt="profile" />
+                                            <img src={user?.photoURL} alt="profile" />
                                         </div>
                                         // :
                                         // <p>Profile</p>
